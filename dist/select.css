@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.3 - 2016-08-17T06:16:42.140Z
+ * Version: 0.19.4 - 2016-08-23T06:11:49.176Z
  * License: MIT
  */
 
@@ -317,4 +317,9 @@ body > .ui-select-bootstrap.open {
   height: 10px;
   right: 10px;
   margin-top: -2px;
+}
+.ui-select-refreshing {
+  color: #999;
+  margin: 0;
+  padding: 5px;
 }

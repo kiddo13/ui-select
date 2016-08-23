@@ -31,6 +31,7 @@ uis.controller('uiSelectCtrl',
   ctrl.focus = false;
   ctrl.disabled = false;
   ctrl.selected = undefined;
+  ctrl.refreshing = false;
 
   ctrl.dropdownPosition = 'auto';
 
@@ -300,7 +301,15 @@ uis.controller('uiSelectCtrl',
         $timeout.cancel(_refreshDelayPromise);
       }
       _refreshDelayPromise = $timeout(function() {
-        $scope.$eval(refreshAttr);
+        var promise = $scope.$eval(refreshAttr);
+
+        // Display loading text
+        if (promise && promise.then) {
+          ctrl.refreshing = true;
+          promise.then(function() {
+            ctrl.refreshing = false;
+          });
+        }
       }, ctrl.refreshDelay);
     }
   };

@@ -15,6 +15,7 @@
        aria-activedescendant="ui-select-choices-row-{{ $select.generatedId }}-{{ $select.activeIndex }}"
              class="ui-select-search select2-input"
              ng-model="$select.search">
+      <p class="ui-select-refreshing" ng-show="$select.refreshing">Loading...</p>
     </div>
     <div class="ui-select-choices"></div>
     <div class="ui-select-no-choice"></div>
